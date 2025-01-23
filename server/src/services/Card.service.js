@@ -1,17 +1,11 @@
-const { Card } = require("../db/models");
+// const { Card } = require("../db/models");
 
-class CardService {
-  static async getAll() {
-    return await Card.findAll();
-  }
+// class CardService {
+//   static async getAll() {
+//     return await Card.findAll({ where: { topicId: id } });
+//   }
 
-  static async getById(id) {
-    return await Card.findByPk(id);
-  }
 
-  static async create(data) {
-    return await Card.create(data);
-  }
-}
+// }
 
-module.exports = CardService;
+// module.exports = CardService;
