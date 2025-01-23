@@ -1,43 +1,16 @@
-const { Movie, User } = require("../db/models");
+const { Card } = require("../db/models");
 
 class CardService {
   static async getAll() {
-    return await Movie.findAll({
-      include: [{ model: User }],
-    });
-  }
-
-  static async create(data) {
-    const newMovie = await Movie.create(data);
-    return await this.getById(newMovie.id);
+    return await Card.findAll();
   }
 
   static async getById(id) {
-    return await Movie.findOne({
-      where: { id },
-      include: [{ model: User }],
-    });
+    return await Card.findByPk(id);
   }
 
-  static async delete(id) {
-    const Movie = await this.getById(id);
-    if (Movie) {
-      await Movie.destroy();
-    }
-    return Movie;
-  }
-
-  static async update(id, data) {
-    const Movie = await this.getById(id);
-    if (Movie) {
-      Movie.title = data.title;
-      Movie.description = data.description;
-      Movie.year = data.year;
-      Movie.image = data.image;
-      Movie.rating = data.rating;
-      await Movie.save();
-    }
-    return Movie;
+  static async create(data) {
+    return await Card.create(data);
   }
 }
 
