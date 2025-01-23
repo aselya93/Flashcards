@@ -1,9 +1,9 @@
 import React from 'react';
 
-function CardList(props) {
+function CardList() {
     return (
         <div>
-            
+            jplkj
         </div>
     );
 }
