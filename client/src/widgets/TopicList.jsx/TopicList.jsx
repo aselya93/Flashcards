@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TopicList(props) {
+function TopicList() {
     return (
         <div>
             
