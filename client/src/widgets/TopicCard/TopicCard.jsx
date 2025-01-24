@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 export default function TopicCard({ topic }) {
+
   const navigate = useNavigate();
   const topicsHendler = () => {
     navigate(`/cards/${topic.id}`);
@@ -14,6 +15,7 @@ export default function TopicCard({ topic }) {
       </div>
       <span>123</span>
       <button onClick={topicsHendler}>Выбрать</button>
+
     </div>
   );
 }
