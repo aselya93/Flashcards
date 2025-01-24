@@ -4,7 +4,7 @@ const router = require("express").Router();
 
 router
 .get('/', TopicController.getAllTopics)
-.get('./:id', TopicController.getTopicById)
+.get('/:id', TopicController.getTopicById)
 
 
 module.exports = router;

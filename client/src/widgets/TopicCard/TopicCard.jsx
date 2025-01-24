@@ -1,19 +1,21 @@
+import { useNavigate } from "react-router-dom";
+
 export default function TopicCard({ topic }) {
-  const topicsHendler = () => {};
+
+  const navigate = useNavigate();
+  const topicsHendler = () => {
+    navigate(`/cards/${topic.id}`);
+  };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        border: "1px solid red",
-        width: "500px",
-        height: "500px",
-      }}
-    >
+    <div>
       <span>{topic.name}</span>
-      <img src={topic.img} alt={topic.name} />,<span>123</span>
-      {/* <button onClick={topicsHendler}>Выбрать</button> */}
+      <div>
+        <img src={topic.img} alt={topic.name} />
+      </div>
+      <span>123</span>
+      <button onClick={topicsHendler}>Выбрать</button>
+
     </div>
   );
 }

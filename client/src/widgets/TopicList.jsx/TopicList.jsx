@@ -7,7 +7,10 @@ function TopicList({ topics }) {
       {topics.length === 0 ? (
         <h3>No topics</h3>
       ) : (
+
+    
         topics.map((topic) => <TopicCard key={topic.id} topic={topic} />)
+
       )}
     </>
   );

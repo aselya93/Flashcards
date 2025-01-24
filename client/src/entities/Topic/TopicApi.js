@@ -4,7 +4,9 @@ export default class TopicApi {
   static async getAllTopic() {
     try {
       const { data } = await axiosInstance.get("/topics");
-      return data;
+
+      return data
+
     } catch (error) {
       return error.response.data;
     }
