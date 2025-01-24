@@ -12,7 +12,7 @@ class CardController {
       }
 
       const cards = await Card.findAll({ where: { topicId: id } });
-      if (!cards) {
+      if (!cards.length) {
         return res
           .status(404)
           .json(formatResponse(404, `Question with id ${id} not found`));
