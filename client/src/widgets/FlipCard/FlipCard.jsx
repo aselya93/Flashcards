@@ -10,16 +10,15 @@ function FlipCard({ frontContent, backContent }) {
       };
 
     return (
-        <div className={`flip-card ${isFlipped ? "flipped" : ""}`} onClick={handleFlip}>
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
-          {frontContent}
-        </div>
-        <div className="flip-card-back">
-          {backContent}
+        <div
+        className={`${styles.flipCard} ${isFlipped ? styles.flipped : ""}`}
+        onClick={handleFlip}
+      >
+        <div className={styles.flipCardInner}>
+          <div className={styles.flipCardFront}>{frontContent}</div>
+          <div className={styles.flipCardBack}>{backContent}</div>
         </div>
       </div>
-    </div>
     );
 }
 
