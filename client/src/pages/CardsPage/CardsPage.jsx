@@ -1,9 +1,13 @@
 import React from 'react';
+import CardList from '../../widgets/CardList/CardList';
+import { useNavigate } from 'react-router-dom';
 
-function CardsPage(props) {
+function CardsPage() {
+    const navigate = useNavigate();
+    
     return (
         <div>
-            
+            <CardList />
         </div>
     );
 }
