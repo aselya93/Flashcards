@@ -11,7 +11,9 @@ function TopicPage() {
 
   const loadTopics = async () => {
     try {
+
       const { data } = await TopicApi.getAllTopic();
+
       setTopics(data);
     } catch (error) {
       console.log(error);
