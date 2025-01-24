@@ -1,66 +1,80 @@
 /* Основные стили для навигации */
+:root {
+  --primary-color: #1976d2; /* Основной цвет MUI */
+  --secondary-color: #ffffff; /* Вторичный цвет */
+  --text-color: rgba(0, 0, 0, 0.87); /* Цвет текста */
+  --hover-color: rgba(25, 118, 210, 0.1); /* Цвет при наведении */
+}
+
+/* Navigation.module.css */
 .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #001529; /* Цвет фона */
+  background: #001529; /* Темный фон для навигации */
+  color: white;
   padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.navLeft,
-.navRight {
+/* Логотип и бренд */
+.navBrand {
+  font-size: 24px;
+  font-weight: 500; /* Полужирный шрифт */
+  color: var(--primary-color);
+  text-decoration: none;
   display: flex;
   align-items: center;
 }
 
-/* Стили для кнопки "Главная" */
+.navBrand span {
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+/* Кнопки навигации */
 .navButton {
-  margin: 0 5px;
-  font-size: 14px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  background-color: #8b0000; /* Темно-бордовый фон */
+  margin: 0 10px;
+  font-size: 16px;
+  color: var(--text-color);
   border: none;
-  color: white;
-  padding: 8px 15px;
-  font-weight: bold;
+  background: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px; /* Добавляем отступы */
+  border-radius: 4px; /* Скругленные углы */
 }
 
 .navButton:hover {
-  transform: translateY(-2px); /* Анимация "подъема" при наведении */
-  background-color: #a50b0b; /* Более яркий красный на hover */
+  background-color: var(--hover-color); /* Фон при наведении */
+  color: var(--primary-color);
 }
 
-/* Имя пользователя */
-.navUsername {
-  color: #fff; /* Белый текст */
-  font-weight: bold;
-  margin-right: 15px;
+.navButton .anticon {
+  margin-right: 8px;
 }
 
-/* Ссылки */
-a {
-  text-decoration: none;
-}
+/* Адаптивность */
+@media (max-width: 768px) {
+  .navigation {
+    flex-direction: column;
+    padding: 10px;
+  }
 
-.authLinks {
-  display: flex;
-  gap: 1.5rem;
-}
+  .navLeft,
+  .navRight {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
 
-/* Убираем лишние стили кнопок внутри ссылок */
-.authLinks a .ant-btn {
-  background-color: transparent;
-  border-color: #1890ff;
-  color: #1890ff;
-}
-
-.authLinks a .ant-btn:hover {
-  background-color: #1890ff;
-  color: white;
-}
-
-.authLinks a .ant-btn:focus {
-  box-shadow: none;
+  .navButton {
+    margin: 5px;
+    font-size: 14px;
+    padding: 6px 12px; /* Уменьшаем отступы для мобильных устройств */
+  }
 }
