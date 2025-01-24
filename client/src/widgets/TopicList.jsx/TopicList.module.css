@@ -5,4 +5,5 @@
   padding: 20px;
   overflow-x: auto;
   justify-content: space-around;
+  flex-wrap: wrap;
 }

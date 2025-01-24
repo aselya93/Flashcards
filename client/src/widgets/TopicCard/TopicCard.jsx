@@ -10,6 +10,7 @@ export default function TopicCard({ topic }) {
   return (
     <div
       style={{
+        marginLeft: "30px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
