@@ -21,8 +21,6 @@ function Navigation() {
           </Button>
         </div>
       </div>
-
-      <Outlet />
     </>
   );
 }
