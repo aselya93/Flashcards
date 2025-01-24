@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Button } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import FlipCard from "../FlipCard/FlipCard";
 import { message as antMessage } from "antd";
 
@@ -18,7 +18,14 @@ function QuestioniCard({
 
   const answerClickHandler = (answer) => {
     try {
-      if (isAnswered) return;
+      if (!isAnswered) {
+        setSelectedAnswer(answer);
+        setIsAnswered(true);
+        setIsCorrect(answer === correctAnswer);
+        antMessage.success(
+          answer === correctAnswer ? "Правильно! Молодец!" : "Ошибка!"
+        );
+      }
       setSelectedAnswer(answer);
       setIsAnswered(true);
 
@@ -27,8 +34,9 @@ function QuestioniCard({
         antMessage.success("Правильно! Молодец!");
       }
     } catch (error) {
+      console.log(error);
       setIsCorrect(false);
-      antMessage.error("Иди учись!");
+      antMessage.error("Ошибка!");
     }
   };
 

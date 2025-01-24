@@ -16,7 +16,7 @@ function App() {
       children: [
         { path: "/", element: <MainPage /> },
         { path: "/topics", element: <TopicPage /> },
-        { path: "/cards/:topicId", element: <CardsPage /> },
+        { path: `/cards/:topicId`, element: <CardsPage /> },
         { path: "*", element: <NotFoundPage /> },
       ],
     },
