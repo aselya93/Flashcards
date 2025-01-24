@@ -1,121 +1,134 @@
 /* MainPage.module.css */
 
+/* Основные стили для страницы */
 .mainPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #15202b, #1c2a3a); /* Градиентный фон */
-    color: #ffffff; /* Белый текст */
-    padding: 20px;
-  }
-  
-  .heroSection {
-    text-align: center;
-    max-width: 800px;
-    margin-bottom: 60px;
-  }
-  
-  .title {
-    font-size: 3rem;
-    margin-bottom: 16px;
-    animation: fadeIn 1s ease-in-out;
-  }
-  
-  .subtitle {
-    font-size: 1.2rem;
-    color: #8899a6; /* Серый текст */
-    margin-bottom: 32px;
-    animation: fadeIn 1.5s ease-in-out;
-  }
-  
-  .authButtons {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-  }
-  
-  .ctaButton {
-    font-size: 1rem;
-    padding: 12px 24px;
-    border-radius: 25px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
- /* MainPage.module.css */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb); /* Яркий градиент */
+  color: #ffffff; /* Белый текст */
+  padding: 20px;
+  overflow: hidden; /* Скрываем выходящие за пределы элементы */
+}
 
-.ctaButton.ant-btn-primary {
-    background: linear-gradient(135deg, #9b51e0, #bb6bd9); /* Фиолетовый градиент */ /* Градиентный фон */
-    border: none;
-    color: #ffffff; /* Белый текст */
-    font-weight: 500; /* Полужирный текст */
-    box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3); /* Тень */
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+/* Секция с заголовком и кнопкой */
+.heroSection {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 60px;
+  animation: slideIn 1s ease-in-out; /* Анимация появления */
+}
+
+/* Заголовок */
+.title {
+  font-size: 4rem; /* Большой размер */
+  margin-bottom: 16px;
+  background: linear-gradient(45deg, #ff6f61, #ffcc00); /* Градиентный текст */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: float 3s ease-in-out infinite; /* Анимация плавания */
+}
+
+/* Подзаголовок */
+.subtitle {
+  font-size: 1.5rem;
+  color: #ffffff; /* Белый текст */
+  margin-bottom: 32px;
+  animation: fadeIn 1.5s ease-in-out; /* Анимация появления */
+}
+
+/* Кнопка "Давай поиграем!" */
+.ctaButton {
+  font-size: 1.2rem;
+  padding: 15px 30px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff6f61, #ffcc00); /* Яркий градиент */
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4); /* Тень */
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  animation: pulse 2s infinite; /* Анимация пульсации */
+}
+
+.ctaButton:hover {
+  transform: translateY(-5px); /* Эффект поднятия */
+  box-shadow: 0 8px 20px rgba(255, 111, 97, 0.6); /* Увеличенная тень */
+  background: linear-gradient(135deg, #ffcc00, #ff6f61); /* Инвертированный градиент */
+}
+
+/* Секция с карточками */
+.featuresSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Карточки */
+.featureCard {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Градиентный фон */
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.3); /* Тень */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featureCard:hover {
+  transform: translateY(-10px); /* Эффект поднятия */
+  box-shadow: 0 8px 25px rgba(255, 111, 97, 0.5); /* Увеличенная тень */
+}
+
+.featureCard h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #ffffff; /* Белый текст */
+}
+
+.featureCard p {
+  font-size: 1rem;
+  color: #ffffff; /* Белый текст */
+}
+
+/* Анимации */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
   }
-  
-  .ctaButton.ant-btn-primary:hover {
-    background: linear-gradient(135deg, #9b51e0, #bb6bd9);  /* Инвертированный градиент при наведении */
-    transform: translateY(-2px); /* Эффект поднятия */
-    box-shadow: 0 6px 16px rgba(29, 161, 242, 0.4); /* Увеличенная тень */
-  }
-  
-  .ctaButton.ant-btn-default {
-    background-color: transparent;
-    border: 1px solid #1da1f2; /* Голубая граница */
-    color: #1da1f2; /* Голубой текст */
-  }
-  
-  .ctaButton.ant-btn-default:hover {
-    background-color: #1da1f2; /* Голубой фон при наведении */
-    color: #ffffff; /* Белый текст при наведении */
-    transform: translateY(-2px); /* Эффект поднятия */
-    box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3); /* Тень */
-  }
-  
-  .ctaButton.ant-btn-primary:active {
+  to {
+    opacity: 1;
     transform: translateY(0);
-    box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
   }
-  .featuresSection {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-    padding: 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  .featureCard {
-    background-color: #1c2a3a; /* Темный фон для карточек */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Тень */
-    transition: transform 0.3s, box-shadow 0.3s;
+  to {
+    opacity: 1;
   }
-  
-  .featureCard:hover {
-    transform: translateY(-5px); /* Эффект поднятия */
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Увеличенная тень */
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
   }
-  
-  .featureCard h2 {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+  50% {
+    transform: translateY(-10px);
   }
-  
-  .featureCard p {
-    font-size: 1rem;
-    color: #8899a6; /* Серый текст */
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  50% {
+    transform: scale(1.05);
   }
+}
