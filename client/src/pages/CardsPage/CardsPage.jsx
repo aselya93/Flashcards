@@ -48,6 +48,7 @@ function CardsPage() {
               option2={card.option2}
               option3={card.option3}
               option4={card.option4}
+              img={card.img}
             />
           </div>
         ))}

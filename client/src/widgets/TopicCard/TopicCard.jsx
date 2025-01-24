@@ -1,23 +1,14 @@
-
 import React, { useState } from "react";
-
-
-
 
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 
 export default function TopicCard({ topic }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
-
-
-   const [isHovered, setIsHovered] = useState(false);
-  const navigate = useNavigate()
-  
-
-  const topicsHendler = () => {
+  const topicsHandler = () => {
     navigate(`/cards/${topic.id}`);
-
   };
 
   return (
@@ -57,6 +48,5 @@ export default function TopicCard({ topic }) {
       />
       <span style={{ fontSize: "1.5rem", margin: "10px 0" }}>{topic.name}</span>
     </div>
-  
   );
 }

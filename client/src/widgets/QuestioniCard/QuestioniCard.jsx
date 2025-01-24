@@ -11,10 +11,11 @@ function QuestioniCard({
   option2,
   option3,
   option4,
+  img,
 }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null); // Состояние для выбранного ответа
   const [isCorrect, setIsCorrect] = useState(false); // Состояние для проверки правильности ответа
-  const [isAnswered, setIsAnswered] = useState(false); // блокировка внопок
+  const [isAnswered, setIsAnswered] = useState(false); // блокировка кнопок
 
   const answerClickHandler = (answer) => {
     try {
@@ -23,15 +24,8 @@ function QuestioniCard({
         setIsAnswered(true);
         setIsCorrect(answer === correctAnswer);
         antMessage.success(
-          answer === correctAnswer ? "Правильно! Молодец!" : "Ошибка!"
+          answer === correctAnswer ? "Правильно! Хороооош!" : "Ай-ай-ай!"
         );
-      }
-      setSelectedAnswer(answer);
-      setIsAnswered(true);
-
-      if (answer === correctAnswer) {
-        setIsCorrect(true);
-        antMessage.success("Правильно! Молодец!");
       }
     } catch (error) {
       console.log(error);
@@ -40,10 +34,25 @@ function QuestioniCard({
     }
   };
 
-  const frontContent = <div>{question}</div>;
+  const frontContent = (
+    <div>
+      <div>{question}</div>
+    </div>
+  );
 
   const backContent = (
     <div>
+      {img && (
+        <img
+          src={img}
+          alt={question}
+          style={{
+            width: "100%",
+            borderRadius: "10px",
+            marginBottom: "10px",
+          }}
+        />
+      )}
       <Button onClick={() => answerClickHandler(option1)} disabled={isAnswered}>
         {option1}
       </Button>
