@@ -8,9 +8,13 @@ import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
 
 export default function TopicCard({ topic }) {
+
+
+
    const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate()
   
+
   const topicsHendler = () => {
     navigate(`/cards/${topic.id}`);
 
