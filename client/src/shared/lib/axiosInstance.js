@@ -1,40 +1,47 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: `${import.meta.env.VITE_API}api`,
-  headers: { "Content-Type": "application/json" },
-  withCredentials: true,
+  baseURL: "http://localhost:3000/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-let accessToken = "";
+// export const axiosInstance = axios.create({
+//   baseURL: `${import.meta.env.VITE_API}api`,
+//   headers: { "Content-Type": "application/json" },
+//   withCredentials: true,
+// });
 
-export function setAccessToken(token) {
-  accessToken = token;
-}
+// let accessToken = "";
 
-axiosInstance.interceptors.request.use((config) => {
-  if (!config.headers.authorization) {
-    config.headers.authorization = `Bearer ${accessToken}`;
-  }
-  return config;
-});
+// export function setAccessToken(token) {
+//   accessToken = token;
+// }
 
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const prevRequest = error.config;
+// axiosInstance.interceptors.request.use((config) => {
+//   if (!config.headers.authorization) {
+//     config.headers.authorization = `Bearer ${accessToken}`;
+//   }
+//   return config;
+// });
 
-    if (error.response.status === 403 && !prevRequest.sent) {
-      const response = await axiosInstance.get("/auth/refreshTokens");
+// axiosInstance.interceptors.response.use(
+//   (response) => response,
+//   async (error) => {
+//     const prevRequest = error.config;
 
-      setAccessToken(response.data.accessToken);
+//     if (error.response.status === 403 && !prevRequest.sent) {
+//       const response = await axiosInstance.get("/auth/refreshTokens");
 
-      prevRequest.sent = true;
+//       setAccessToken(response.data.accessToken);
 
-      prevRequest.headers.authorization = `Bearer ${accessToken}`;
+//       prevRequest.sent = true;
 
-      return axiosInstance(prevRequest);
-    }
-    return Promise.reject(error);
-  }
-);
+//       prevRequest.headers.authorization = `Bearer ${accessToken}`;
+
+//       return axiosInstance(prevRequest);
+//     }
+//     return Promise.reject(error);
+//   }
+// );
