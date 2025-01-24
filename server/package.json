@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-     "dev": "nodemon ./src/app.js --ext js,json,css,jsx"
+    "dev": "nodemon ./src/app.js --ext js,json,css,jsx"
   },
   "keywords": [],
   "author": "",
