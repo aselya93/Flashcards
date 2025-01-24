@@ -10,13 +10,17 @@ class CardController {
       if (!isValidId(id)) {
         return res.status(400).json(formatResponse(400, "Invalid Topic ID"));
       }
-
+      console.log(id, '1231231231231231');
+      
       const cards = await Card.findAll({ where: { topicId: id } });
+      
+      console.log(cards, 'server');
       if (!cards.length) {
         return res
           .status(404)
           .json(formatResponse(404, `Question with id ${id} not found`));
       }
+      
       res.status(200).json(formatResponse(200, "success", cards));
     } catch ({ message }) {
       console.error(message);

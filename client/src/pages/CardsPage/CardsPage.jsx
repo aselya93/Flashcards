@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { message as antMessage } from "antd";
 import CardApi from "../../entities/card/CardApi";
 import QuestioniCard from "../../widgets/QuestioniCard/QuestioniCard";
+import styles from './CardsPage.module.css'; // Импортируем стили
 
 function CardsPage() {
   const { topicId } = useParams();
@@ -12,16 +13,16 @@ function CardsPage() {
   async function flashcardsByIdTopicHandler() {
     setLoading(true);
     try {
-      const response = await CardApi.getCardsByIdTopic(topicId);
-      const { data, error, statusCode, message } = response;
+      const { data } = await CardApi.getCardsByIdTopic(topicId);
+      const { data: newdata, error, statusCode, message } = data;
+
       if (error) {
         antMessage.error(error);
         return;
       }
+
       antMessage.success(message);
-      if (statusCode === 200) {
-        setCards(data);
-      }
+      setCards(newdata);
     } catch (error) {
       console.log(error);
       antMessage.error(error.message);
@@ -33,20 +34,24 @@ function CardsPage() {
   useEffect(() => {
     flashcardsByIdTopicHandler();
   }, [topicId]);
+
   return (
-    <div>
-      <h1>Карточки для темы {topicId}</h1>
-      {cards.map((card) => (
-        <QuestioniCard
-          key={card.id}
-          question={card.question}
-          correctAnswer={card.correctAnswer}
-          option1={card.option1}
-          option2={card.option2}
-          option3={card.option3}
-          option4={card.option4}
-        />
-      ))}
+    <div className={styles.cardsPage}>
+      <h1 className={styles.title}>Карточки для темы {topicId}</h1>
+      <div className={styles.cardsSection}>
+        {cards.map((card) => (
+          <div key={card.id} className={styles.card}>
+            <QuestioniCard
+              question={card.question}
+              correctAnswer={card.correctAnswer}
+              option1={card.option1}
+              option2={card.option2}
+              option3={card.option3}
+              option4={card.option4}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

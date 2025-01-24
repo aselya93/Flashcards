@@ -8,7 +8,7 @@ const CardController = require("../controllers/Card.controller");
 
 router
 .get('/', TopicController.getAllTopics)
-.get('/:id', TopicController.getTopicById)
+// .get('/:id', TopicController.getTopicById)
 
 
 router.get("/:id", CardController.getCardsByIdTopic);
