@@ -1,15 +1,16 @@
-import React from 'react';
-import CardList from '../../widgets/CardList/CardList';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import CardList from "../../widgets/CardList/CardList";
+import { useParams } from "react-router-dom";
 
 function CardsPage() {
-
-    
-    return (
-        <div>
-            <CardList />
-        </div>
-    );
+  const { topicId } = useParams();
+  return (
+    <div>
+      <CardList topicId={topicId} />
+    </div>
+  );
 }
 
 export default CardsPage;
+
+

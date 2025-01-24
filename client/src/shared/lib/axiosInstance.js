@@ -1,40 +1,50 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: `${import.meta.env.VITE_API}api`,
-  headers: { "Content-Type": "application/json" },
-  withCredentials: true,
+  baseURL: "http://localhost:3000/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-let accessToken = "";
 
-export function setAccessToken(token) {
-  accessToken = token;
-}
+// import axios from "axios";
 
-axiosInstance.interceptors.request.use((config) => {
-  if (!config.headers.authorization) {
-    config.headers.authorization = `Bearer ${accessToken}`;
-  }
-  return config;
-});
+// export const axiosInstance = axios.create({
+//   baseURL: `${import.meta.env.VITE_API}api`,
+//   headers: { "Content-Type": "application/json" },
+//   withCredentials: true,
+// });
 
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const prevRequest = error.config;
+// let accessToken = "";
 
-    if (error.response.status === 403 && !prevRequest.sent) {
-      const response = await axiosInstance.get("/auth/refreshTokens");
+// export function setAccessToken(token) {
+//   accessToken = token;
+// }
 
-      setAccessToken(response.data.accessToken);
+// axiosInstance.interceptors.request.use((config) => {
+//   if (!config.headers.authorization) {
+//     config.headers.authorization = `Bearer ${accessToken}`;
+//   }
+//   return config;
+// });
 
-      prevRequest.sent = true;
+// axiosInstance.interceptors.response.use(
+//   (response) => response,
+//   async (error) => {
+//     const prevRequest = error.config;
 
-      prevRequest.headers.authorization = `Bearer ${accessToken}`;
+//     if (error.response.status === 403 && !prevRequest.sent) {
+//       const response = await axiosInstance.get("/auth/refreshTokens");
 
-      return axiosInstance(prevRequest);
-    }
-    return Promise.reject(error);
-  }
-);
+//       setAccessToken(response.data.accessToken);
+
+//       prevRequest.sent = true;
+
+//       prevRequest.headers.authorization = `Bearer ${accessToken}`;
+
+//       return axiosInstance(prevRequest);
+//     }
+//     return Promise.reject(error);
+//   }
+// );

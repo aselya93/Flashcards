@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import TopicList from "../../widgets/TopicList.jsx/TopicList";
 import TopicApi from "../../entities/Topic/TopicApi";
 
-
 function TopicPage() {
   const [topics, setTopics] = useState([]);
 
@@ -12,9 +11,8 @@ function TopicPage() {
 
   const loadTopics = async () => {
     try {
-      const { name, img } = await TopicApi.getAllTopic();
-      //   const data = await TopicApi.getAllTopic();
-      setTopics({ name, img });
+      const data = await TopicApi.getAllTopic();
+      setTopics(data);
     } catch (error) {
       console.log(error);
     }

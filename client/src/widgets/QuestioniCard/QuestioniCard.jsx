@@ -36,16 +36,16 @@ function QuestioniCard({
 
   const backContent = (
     <div>
-      <Button onClick={() => handleAnswerClick(option1)} disabled={isAnswered}>
+      <Button onClick={() => answerClickHandler(option1)} disabled={isAnswered}>
         {option1}
       </Button>
-      <Button onClick={() => handleAnswerClick(option2)} disabled={isAnswered}>
+      <Button onClick={() => answerClickHandler(option2)} disabled={isAnswered}>
         {option2}
       </Button>
-      <Button onClick={() => handleAnswerClick(option3)} disabled={isAnswered}>
+      <Button onClick={() => answerClickHandler(option3)} disabled={isAnswered}>
         {option3}
       </Button>
-      <Button onClick={() => handleAnswerClick(option4)} disabled={isAnswered}>
+      <Button onClick={() => answerClickHandler(option4)} disabled={isAnswered}>
         {option4}
       </Button>
 

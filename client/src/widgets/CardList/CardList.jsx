@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { message as antMessage, Card } from "antd";
+import { useParams } from "react-router-dom";
+import { message as antMessage } from "antd";
 import CardApi from "../../entities/card/CardApi";
 import QuestioniCard from "../QuestioniCard/QuestioniCard";
 
 function CardList() {
-  const { topicId } = useParams();
   const [cards, setCards] = useState(null);
   const [loading, setLoading] = useState(false);
 
