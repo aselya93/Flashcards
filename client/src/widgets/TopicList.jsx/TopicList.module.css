@@ -1,0 +1,9 @@
+.style {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

@@ -18,6 +18,14 @@ module.exports = {
           name: "Geography",
           img: "https://uchilkin.ru/storage/blog_articles/March2024/uchilkin-knigi-geografiaya1.png",
         },
+        {
+          name: "History",
+          img: "https://www.euroschoolindia.com/wp-content/webp-express/webp-images/uploads/2023/07/how-to-learn-history.jpg.webp",
+        },
+        {
+          name: "Literature",
+          img: "https://www.tutoronline.ru/upload/blog/content/09.07.2024/a1a71c886fa446949ee685e17998fc7a.jpg",
+        },
       ],
       {}
     );
