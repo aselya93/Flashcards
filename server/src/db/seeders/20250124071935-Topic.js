@@ -14,6 +14,10 @@ module.exports = {
           name: "Hobbit",
           img: "https://upload.wikimedia.org/wikipedia/ru/3/32/The_Hobbit._An_Unexpected_Journey.jpg",
         },
+        {
+          name: "Geography",
+          img: "https://uchilkin.ru/storage/blog_articles/March2024/uchilkin-knigi-geografiaya1.png",
+        },
       ],
       {}
     );
