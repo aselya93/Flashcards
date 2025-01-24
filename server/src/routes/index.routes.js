@@ -3,7 +3,10 @@ const cardRoutes = require("./card.routes");
 const topicRoutes = require("./topic.routes");
 const formatResponse = require("../utils/formatResponse");
 
-router.use("/cards", cardRoutes).use("/topics", topicRoutes);
+router
+.use("/topics", topicRoutes)
+.use("/cards", cardRoutes)
+
 
 router.use("*", (req, res) => {
   res

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { message as antMessage, Card } from "antd";
 import CardApi from "../../entities/card/CardApi";
+import QuestioniCard from "../QuestioniCard/QuestioniCard";
 
 function CardList() {
   const { topicId } = useParams();
@@ -43,17 +44,18 @@ function CardList() {
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-      {cards.slice(0, 4).map((card) => (
-        <Card key={card.id}>
-          question={card.question}
-          correctAnswer={card.correctAnswer}
-          option1={card.option1}
-          option2={card.option2}
-          option3={card.option3}
-          option4={card.option4}
-        </Card>
-      ))}
-    </div>
+    {cards.slice(0, 4).map((card) => (
+      <QuestioniCard
+        key={card.id}
+        question={card.question}
+        correctAnswer={card.correctAnswer}
+        option1={card.option1}
+        option2={card.option2}
+        option3={card.option3}
+        option4={card.option4}
+      />
+    ))}
+  </div>
   );
 }
 
