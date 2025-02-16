@@ -6,10 +6,6 @@ class TopicController {
   static async getAllTopics(req, res) {
     try {
       const topics = await TopicService.getAll();
-      if (topics.length === 0) {
-        return res.status(200).json(formatResponse(200, "No topics found", []));
-      }
-      
       res.status(200).json(formatResponse(200, "success", topics));
     } catch ({ message }) {
       console.error(message);
